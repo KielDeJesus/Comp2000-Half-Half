@@ -82,7 +82,7 @@ They are:
 - Mall: These are created when there are 4 shops on the grid, they are all merged together into one mall.
 - Disaster: responsible for creating the disaster logic for the simulation. Implemented to add random chaos to the simulation and cause variations in population.
 - EventManager: creates an array of events to load and execute during the simulation, this mainly relates to the disasters.
-
+- CityEvent: a super class that encompasses all the logic for disaster and event manager to derive off of.
 
 
 
@@ -97,6 +97,7 @@ They are:
 
 Most of the classes in our program are related to the Building super class, with Building being the parent and House, Apartment, Office, Shop, Mall, School and University being children of Building. The children of Building override the getPopulation() and build() methods of Building to modify the position of a building on the grid and to get the overall population that the building type has generated over time.
 
+Event Manager and Disaster inherit behaviors from the CityEvent interface, they override the event queue.
 
 
 
