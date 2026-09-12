@@ -234,7 +234,7 @@ Week 4’s inheritance activity taught me the most as I was able to learn how we
 **5.1.** List everything you added to the project that was not part of the in-class activities.
 
 
-I added a main for loop responsible for handling the spawning of random houses over time. 
+I added a main for loop responsible for handling the spawning of random houses over time, this was not covered in the lectures or any in class activities that we did
 
 
 **5.2.** Which feature required the most independent research or problem-solving? What did you learn from it?
