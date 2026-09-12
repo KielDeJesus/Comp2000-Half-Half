@@ -50,7 +50,7 @@ During this project, we primarily utilised push and pull requests, we did not us
 **1.3.** Estimate the percentage of commits you contributed relative to the total in your repository.
 
 
-I estimate that I was able to create at least 20-25 percent of commits during this project.
+I estimate that I was able to create at least 10-20 percent of commits during this project.
 
 
 
@@ -68,11 +68,11 @@ I estimate that I was able to create at least 20-25 percent of commits during th
 **2.1.** List every class in your project and write 1–2 sentences describing its responsibility.
 
 
-We have a total of 8 classes
+We have a total of 10 classes
 
 
 They are:
-Building: this is the superclass of our project, it is responsible for housing all the internal logic that a building may need, these include population, variables for position and a build function that enables the placing of these buildings on our grid.
+Building: this is the super-class of our project, it is responsible for housing all the internal logic that a building may need, these include population, variables for position and a build function that enables the placing of these buildings on our grid.
 House: this is responsible for generating the population for our simulation. These are spawned in random positions over the course of the simulation to produce people.
 Apartment: These are responsible for reducing the amount of houses that are on the grid. These are spawned when houses reach a certain population threshold, these houses are then merged into one apartment.
 Office: These are responsible for generating income and spawn when the population reaches a certain threshold (60-70 people overall). 
@@ -80,6 +80,8 @@ School: These are responsible for teaching any children that our house class pro
 University: 
 Shop: These are responsible for producing more workers and generating income in the simulation.
 Mall: These are created when there are 4 shops on the grid, they are all merged together into one mall.
+Disaster: responsible for creating the disaster logic for the simulation. Implemented to add random chaos to the simulation and cause variations in population.
+EventManager: creates an array of events to load and execute during the simulation, this mainly relates to the disasters.
 
 
 
@@ -124,7 +126,7 @@ I really liked the Building super class as it encompasses all the necessary logi
         return workers;
     }
 
-
+As seen _Learning Java 3rd Edition_, this is called **subtype polymorphism** as we are overriding methods to change the behaviour of objects. In this case, we are overriding the getPopulation method in Office as overtime it'll have a different population count from other buildings. This is why the override is there, to ensure that the correct population is returned and not the default one found in our building class.
 
 
 
@@ -209,8 +211,8 @@ Window.java also uses one in its incPopulation() method, this is primarily found
 
 **4.1.** Attach or link your log book entries for Weeks 1–6.
 
-
-
+[
+https://github.com/KielDeJesus/Comp2000-Half-Half/tree/main/LogBooks](url)
 
 
 
