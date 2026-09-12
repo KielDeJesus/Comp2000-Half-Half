@@ -72,16 +72,16 @@ We have a total of 10 classes
 
 
 They are:
-Building: this is the super-class of our project, it is responsible for housing all the internal logic that a building may need, these include population, variables for position and a build function that enables the placing of these buildings on our grid.
-House: this is responsible for generating the population for our simulation. These are spawned in random positions over the course of the simulation to produce people.
-Apartment: These are responsible for reducing the amount of houses that are on the grid. These are spawned when houses reach a certain population threshold, these houses are then merged into one apartment.
-Office: These are responsible for generating income and spawn when the population reaches a certain threshold (60-70 people overall). 
-School: These are responsible for teaching any children that our house class produces, these will also produce workers for future offices that spawn.
-University: 
-Shop: These are responsible for producing more workers and generating income in the simulation.
-Mall: These are created when there are 4 shops on the grid, they are all merged together into one mall.
-Disaster: responsible for creating the disaster logic for the simulation. Implemented to add random chaos to the simulation and cause variations in population.
-EventManager: creates an array of events to load and execute during the simulation, this mainly relates to the disasters.
+- Building: this is the super-class of our project, it is responsible for housing all the internal logic that a building may need, these include population, variables     for position and a build function that enables the placing of these buildings on our grid.
+- House: this is responsible for generating the population for our simulation. These are spawned in random positions over the course of the simulation to produce     people.
+- Apartment: These are responsible for reducing the amount of houses that are on the grid. These are spawned when houses reach a certain population threshold, these     houses are then merged into one apartment.
+- Office: These are responsible for generating income and spawn when the population reaches a certain threshold (60-70 people overall). 
+- School: These are responsible for teaching any children that our house class produces, these will also produce workers for future offices that spawn.
+- University: Responsible for educating adults that will work in offices later.
+- Shop: These are responsible for producing more workers and generating income in the simulation.
+- Mall: These are created when there are 4 shops on the grid, they are all merged together into one mall.
+- Disaster: responsible for creating the disaster logic for the simulation. Implemented to add random chaos to the simulation and cause variations in population.
+- EventManager: creates an array of events to load and execute during the simulation, this mainly relates to the disasters.
 
 
 
