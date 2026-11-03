@@ -1,7 +1,12 @@
 import java.awt.*;
+import java.util.stream.Stream;
 public class Office extends Apartment{
     private int workers; 
     private int money = 0;
+    Stream<int> collection; 
+
+    
+    //parallel stream for calculating amount of workers and generating workers at the same time?
 
     public Office(int x, int y){
         this.workers  = getWorkers();
