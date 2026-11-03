@@ -1,3 +1,3 @@
 public interface  eventLogic {
-    public void event();
+    public void event(int x);
 }

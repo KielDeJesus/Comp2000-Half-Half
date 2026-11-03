@@ -6,7 +6,7 @@ public class eventStrategyManager {
         this.strategies = s;
     }
 
-    public void executeStrategy(){
-        strategies.event();
+    public void executeStrategy(int population){
+        strategies.event(population);
     }
 }
