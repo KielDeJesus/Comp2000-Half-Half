@@ -1,3 +1,3 @@
-public interface  eventLogic {
-    public void event(int x);
+public interface EventLogic {
+    public void build(Window win);
 }

@@ -17,17 +17,17 @@ public class Window extends Frame {
         int total = 0;
         for (int x = 0; x<grid.length; x++){
             for (int y = 0; y<grid[x].length; y++){
-                //try{
+                try{
                     if (grid[x][y] == null)
                         continue;
                     if (grid[x][y].getName().equals("Apartment") || grid[x][y].getName().equals( "House")){
                         total += grid[x][y].getPopulation();
                         continue;
                     }
-               // }
-                // catch(Exception e){
-                //     System.out.println("problem with if statement in totalpeople "+grid[i][z]);
-                // }
+               }
+                catch(Exception e){
+                    System.out.println("problem with if statement in totalpeople "+grid[x][y]);
+                }
             }
         }
         // System.out.println("total people = "+total);
@@ -249,16 +249,16 @@ public class Window extends Frame {
         return count;
     }
 
-    public void houseMain(){
-        House house = new House(2,2);
-        // check if needed
-        //incPopulation();
-        //find locaiton
-        int[] locaition = findFreeLocation();
-        //draw
-        place(locaition[0], locaition[1], house);
-        System.out.println("total population: "+ totalPeople());
-    }
+    // public void houseMain(){
+    //     House house = new House(2,2);
+    //     // check if needed
+    //     //incPopulation();
+    //     //find locaiton
+    //     int[] locaition = findFreeLocation();
+    //     //draw
+    //     place(locaition[0], locaition[1], house);
+    //     System.out.println("total population: "+ totalPeople());
+    // }
 
         public void decPopulation(){
         int step = 30;

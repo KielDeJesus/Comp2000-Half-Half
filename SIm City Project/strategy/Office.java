@@ -1,12 +1,7 @@
 import java.awt.*;
-import java.util.stream.Stream;
 public class Office extends Apartment{
     private int workers; 
     private int money = 0;
-    Stream<int> collection; 
-
-    
-    //parallel stream for calculating amount of workers and generating workers at the same time?
 
     public Office(int x, int y){
         this.workers  = getWorkers();
@@ -34,4 +29,9 @@ public class Office extends Apartment{
         g2d.setColor(Color.BLUE);
         g2d.fillOval((x * 50) + 7, (y * 50) + 7, 35, 35);
     }
+
+        @Override 
+    public String getName(){
+        return getClass().getSimpleName();
+    } 
 }
