@@ -5,20 +5,21 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Initializing program");
         Window w = new Window(800, 600);
+
         
-        BuildStrategyManager eventManager = new BuildStrategyManager();
-        BuildLogic[] events = {new houseStrategy(), new OfficeStrategy(), new SchoolStrategy(), new ShopStrategy(), new ApartmentStrategy(), new MallStrategy()};
+        BuildStrategyManager buildManager = new BuildStrategyManager();
+        BuildLogic[] builds = {new houseStrategy(), new OfficeStrategy(), new SchoolStrategy(), new ShopStrategy(), new ApartmentStrategy(), new MallStrategy()};
        //creating main loop
 
        
 
 
-        eventManager.SetStrategy(events[0]);
+        buildManager.SetStrategy(builds[0]);
 
         while (w.isDisplayable()){
-        eventManager.executeStrategy(w);
+        buildManager.executeStrategy(w);
             Thread.sleep(500);
-            eventManager.SetStrategy(events[(int)(Math.random() * events.length)]);
+            buildManager.SetStrategy(builds[(int)(Math.random() * builds.length)]);
             w.repaint();
        }
 
