@@ -7,33 +7,35 @@
 
 ## 1. Design Patterns
 
-Don't forget to submit a pdf file which shows a diagram of your pattern implemenation to supplement this text description.
+Don't forget to submit a pdf file which shows a diagram of your pattern implementation to supplement this text description.
 
 **1.1.** Which design pattern(s) did you implement? Name them and state where each appears in your codebase.
 
-I implemented a Strategy Pattern, this can be found through EventLogic, EventStrategyManager and the x (e.g house, apartment, etc)Strategy.java files in our repository.
+I implemented a Strategy Pattern, this can be found through BuildLogic, BuildStrategyManager and the x (e.g house, apartment, etc)Strategy.java files in our repository.
 
 
 
 **1.2.** For each pattern, paste a code snippet showing the key interaction between participants.
 
 in Main.java:
-
-        EventStrategyManager eventManager = new EventStrategyManager();
-        EventLogic[] events = {new houseStrategy(), new OfficeStrategy(), new SchoolStrategy(), new ShopStrategy(), new ApartmentStrategy(), new MallStrategy()};
+        
+        BuildStrategyManager buildManager = new BuildStrategyManager();
+        BuildLogic[] builds = {new houseStrategy(), new OfficeStrategy(), new SchoolStrategy(), new ShopStrategy(), new ApartmentStrategy(), new MallStrategy()};
        //creating main loop
 
        
 
 
-        eventManager.SetStrategy(events[0]);
+        buildManager.SetStrategy(builds[0]);
 
         while (w.isDisplayable()){
-        eventManager.executeStrategy(w);
+        buildManager.executeStrategy(w);
             Thread.sleep(500);
-            eventManager.SetStrategy(events[(int)(Math.random() * events.length)]);
+            buildManager.SetStrategy(builds[(int)(Math.random() * builds.length)]);
+            w.repaint();
+       }
 
-This is linked with the EventStrategyManager class and EventLogic interface to allow buildings to be placed on the grid interchangeably, this is seen through the line 'eventManager.SetStrategy(events[(int)(Math.random() * events.length)]);' which randomly selects a strategy from the events array and executes it.
+This is linked with the BuildStrategyManager class and BuildLogic interface to allow buildings to be placed on the grid interchangeably, this is seen through the line 'buildManager.SetStrategy(builds[(int)(Math.random() * builds.length)]);' which randomly selects a strategy from the events array and executes it.
 
 
 
@@ -41,7 +43,7 @@ This is linked with the EventStrategyManager class and EventLogic interface to a
 
 I chose the strategy pattern for our building system as I observed that our method for actually creating buildings on the grid was actually a shared method between all buildings, enabling this behavior interchangeably allows us to add more buildings more easily in the future.
 
-The only trade off with this implementation was the exclusion of our originally planned events functionality and our mall and apartment merging functions, these were originally going to spawn when either 4 houses reach a threshold or if there were 4 shops in a given area. Events would see the modification of our population via a random choice of an element in an array, this would've been implemented via a strategy pattern (similar to how we setup the EventManager) and would cause decreases or increases in population.
+The only trade off with this implementation was the exclusion of our originally planned events functionality and our mall and apartment merging functions, these were originally going to spawn when either 4 houses reach a threshold or if there were 4 shops in a given area. Events would see the modification of our population via a random choice of an element in an array, this would've been implemented via a strategy pattern (similar to how we setup the buildManager) and would cause decreases or increases in population.
 
 
 
@@ -58,15 +60,14 @@ School.java
 
 **2.2.** For the most sophisticated use, paste the code and explain: what does it do, and why was a stream/lambda better than a loop?
 
-public List<String> getActiveObserverNames() {
-    return observers.stream()
-            .filter(o -> o instanceof School)      // only Schools
-            .map(o -> (School) o)                  // cast
-            .filter(s -> s.getPopulation() > 500)  // active ones
-            .map(School::getName)                  // get names
-            .sorted(Comparator.reverseOrder())     // sort desc
-            .collect(Collectors.toList());
-}
+    public static School create(int x, int y, int students, int teachers) {
+        return new Builder()
+                .name("School #" + x + "-" + y)
+                .students(students)
+                .teachers(teachers)
+                .at(x, y)
+                .build();
+    }
 
 This stream helps return schools with a population greater than 500 in reverse alphabetical order. A stream was implemented here to refactor the program cleanly.
 
@@ -88,13 +89,13 @@ I added a randomness to our spawning mechanic by having our buildings spawn rand
 
 
 
-**3.2.** Paste a code snippet or describe a design decision that demonstrates emergent behaviour, non-trivial complexity, or a genuinely surprising outcome.
+**3.2.** Paste a code snippet or describe a design decision that demonstrates emergent behavior, non-trivial complexity, or a genuinely surprising outcome.
 
 
         while (w.isDisplayable()){
-        eventManager.executeStrategy(w);
+        buildManager.executeStrategy(w);
             Thread.sleep(500);
-            eventManager.SetStrategy(events[(int)(Math.random() * events.length)]);
+            buildManager.SetStrategy(builds[(int)(Math.random() * builds.length)]);
             w.repaint();
        }
 
